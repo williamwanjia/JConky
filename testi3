@@ -63,8 +63,8 @@ color4 EF5A29
 color5 77B753
 
 # Loading lua script for drawning rings
-# lua_load ~/.conky/JConky/JConky.lua
-# lua_draw_hook_post main
+lua_load ~/.conky/JConky/JConky.lua
+lua_draw_hook_post main
 
 ## System information using conky capabilities
 
@@ -85,7 +85,7 @@ ${offset 170}${font Ubuntu:size=10,weight:normal}${color1}Uptime: $uptime
 #${execi 60 cal -3}
 # Showing CPU Graph
 ${voffset 32}${offset 100}${font Ubuntu:size=10,weight:bold}${color4}CPU ${hr 3}
-${offset 105}${acpitemp}°C (GPU${nvidia temp}°C)
+# ${offset 105}${acpitemp}°C (GPU${nvidia temp}°C)
 # Showing TOP 5 CPU-consumers
 ${voffset -20}${offset 300}${font Ubuntu:size=10,weight:normal}${color4}${top name 1}${alignr}${top cpu 1}%
 ${offset 300}${font Ubuntu:size=10,weight:normal}${color1}${top name 2}${alignr}${top cpu 2}%
@@ -105,7 +105,7 @@ ${offset 300}${font Ubuntu:size=10,weight:normal}${color1}${top_mem name 4}${ali
 ${voffset -1}${offset 110}${font Ubuntu:size=10,weight:bold}${color4}DISK ${hr 3}
 ${offset 150}${font Ubuntu:size=9,weight:bold}${color1}Free: ${font Ubuntu:size=9,weight:normal}${fs_free /}${alignr}${font Ubuntu:size=9,weight:bold}Used: ${font Ubuntu:size=9,weight:normal}${fs_used /}
 ${offset 150}${font Ubuntu:size=9,weight:bold}${color1}Free: ${font Ubuntu:size=9,weight:normal}${fs_free /home}${alignr}${font Ubuntu:size=9,weight:bold}Used: ${font Ubuntu:size=9,weight:normal}${fs_used /home}
-${offset 150}${font Ubuntu:size=9,weight:bold}${color1}Free: ${font Ubuntu:size=9,weight:normal}${fs_free /home/jiawan/WinD}${alignr}${font Ubuntu:size=9,weight:bold}Used: ${font Ubuntu:size=9,weight:normal}${fs_used /home/jiawan/WinD}
+# ${offset 150}${font Ubuntu:size=9,weight:bold}${color1}Free: ${font Ubuntu:size=9,weight:normal}${fs_free /home/jiawan/WinD}${alignr}${font Ubuntu:size=9,weight:bold}Used: ${font Ubuntu:size=9,weight:normal}${fs_used /home/jiawan/WinD}
 
 # BAT
 ${voffset 53}${offset 135}${font Ubuntu:size=10,weight:bold}${color4}BAT  ${hr 3}
