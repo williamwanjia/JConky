@@ -22,10 +22,10 @@ conky.config = {
 	no_buffers = true,
 	text_buffer_size = 2048,
 
-	gap_x = 50,
-	gap_y = 50,
+	gap_x = 100,
+	gap_y = 100,
 	minimum_width = 555,
-	maximum_width = 555,
+	maximum_width = 2000,
 
 	own_window = true,
 	own_window_type = 'override',
@@ -37,7 +37,7 @@ conky.config = {
 	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
 
 	border_inner_margin = 0,
-	border_outer_margin = 0,
+	border_outer_margin = 90,
 	alignment = 'top_right',
 
 
@@ -81,13 +81,11 @@ conky.config = {
 conky.text = [[
 ${font DejaVu Sans Mono:size=10}${color4}SYSTEM ${hr 3}
 ${offset 130}${font Mono:size=10,weight:normal}${color1}$sysname $kernel
-${offset 150}${font DejaVu Sans Mono:size=10,weight:normal}${color1}$nodename
-${offset 170}${font DejaVu Sans Mono:size=10,weight:normal}${color1}Uptime: $uptime
-# Showing CPU Graph
-${voffset 32}${offset 100}${font DejaVu Sans Mono:size=10,weight:bold}${color4}CPU ${hr 3}
-# ${offset 105}${acpitemp}°C (GPU${nvidia temp}°C)
+${offset 180}${font DejaVu Sans Mono:size=10,weight:normal}${color1}$nodename
+${offset 230}${font DejaVu Sans Mono:size=10,weight:normal}${color1}Uptime: $uptime
+${offset 50}${voffset 32}${offset 100}${font DejaVu Sans Mono:size=10,weight:bold}${color4}CPU ${hr 3}
+${offset 175}T${acpitemp}°C 
 # Showing TOP 5 CPU-consumers
-
 ${voffset -20}${offset 300}${font DejaVu Sans Mono:size=10,weight:normal}${color4}${top name 1}${alignr}${top cpu 1}%
 ${offset 300}${font DejaVu Sans Mono:size=10,weight:normal}${color1}${top name 2}${alignr}${top cpu 2}%
 ${offset 300}${font DejaVu Sans Mono:size=10,weight:normal}${color1}${top name 3}${alignr}${top cpu 3}%
@@ -104,28 +102,30 @@ ${offset 300}${font DejaVu Sans Mono:size=10,weight:normal}${color1}${top_mem na
 
 # Showing disk partitions: root, home and OneDrive
 ${voffset -1}${offset 110}${font DejaVu Sans Mono:size=10,weight:bold}${color4}DISK ${hr 3}
-${offset 150}${font DejaVu Sans Mono:size=9,weight:bold}${color1}Free: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_free /}${alignr}${font DejaVu Sans Mono:size=9,weight:bold}Used: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_used /}
-${offset 150}${font DejaVu Sans Mono:size=9,weight:bold}${color1}Free: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_free /home}${alignr}${font DejaVu Sans Mono:size=9,weight:bold}Used: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_used /home}
+${voffset 4}${offset 200}${font DejaVu Sans Mono:size=9,weight:bold}${color1}Free: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_free /home/jiawan/Data}${alignr}${font DejaVu Sans Mono:size=9,weight:bold}Used: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_used /home/jiawan/Data}
+${offset 200}${font DejaVu Sans Mono:size=9,weight:bold}${color1}Free: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_free /}${alignr}${font DejaVu Sans Mono:size=9,weight:bold}Used: ${font DejaVu Sans Mono:size=9,weight:normal}${fs_used /}
 
 
 # BAT
-${voffset 53}${offset 135}${font DejaVu Sans Mono:size=10,weight:bold}${color4}BAT  ${hr 3}
-${voffset 7}${offset 150}${color1}${battery_short BAT0} ${battery_time BAT0}
-#${offset 150}${battery_short BAT0} ${battery_time BAT0}
+${voffset 60}${offset 150}${font DejaVu Sans Mono:size=10,weight:bold}${color4}BAT  ${hr 3}
+${voffset 10}${offset 210}${color1}${battery BAT0} ${battery_time BAT0}
 
 # Network data (my desktop have only LAN). ETHERNET ring is mostly useless but looks pretty, main info is in the graphs
 ${voffset 1}${offset 110}${font DejaVu Sans Mono:size=10,weight:bold}${color4}Net  ${hr 3}           
-${offset 190}${color1}${font DejaVu Sans Mono:size=9,weight:bold}  Up: ${font DejaVu Sans Mono:size=9,weight:normal}$color2${upspeed enp0s3} ${goto 320}/${totalup enp0s3} 
+${offset 190}${color1}${font DejaVu Sans Mono:size=9,weight:bold}  Up: ${font DejaVu Sans Mono:size=9,weight:normal}$color2${upspeed wlp111s0}/s ${totalup wlp111s0} 
 #${alignr}${upspeedgraph enp0s3 40,200 4B1B0C FF5C2B 100 -l}
-${offset 190}${color1}${font DejaVu Sans Mono:size=9,weight:bold}Down: ${font DejaVu Sans Mono:size=9,weight:normal}$color2${downspeed enp0s3} ${goto 320}/ ${totaldown enp0s3}
-#${alignr}${downspeedgraph wlp3s0 40,200 324D23 77B753 100 -l}
+${offset 190}${color1}${font DejaVu Sans Mono:size=9,weight:bold}Down: ${font DejaVu Sans Mono:size=9,weight:normal}$color2${downspeed wlp111s0}/s ${totaldown wlp111s0}
 ${voffset 10}${offset 110}${font DejaVu Sans Mono:size=10,weight:bold}${color4}Graphs  ${hr 3} 
 ${color1}
-${offset 120}CPU  ${voffset -22}${cpugraph cpu1 20,180 555555 AAAAAA -l -t} ${cpugraph cpu2 20,180 555555 AAAAAA -l -t}
-${offset 120}     ${voffset -11}${cpugraph cpu3 20,180 555555 AAAAAA -l -t} ${cpugraph cpu4 20,180 555555 AAAAAA -l -t}
-${voffset 2}${offset 120}MEM  ${voffset -10}${memgraph 25,370 555555 AAAAAA -l}
-${offset 120}DISK ${voffset -10}${diskiograph 25,370 666666 666666}
-${offset 120}UP   ${voffset -10}${upspeedgraph enp0s3 25,370 4B1B0C FF5C2B -l -t}
-${offset 120}DOWN ${voffset -10}${downspeedgraph enp0s3 25,370 324D23 77B753 -l -t}
+${offset 120}CPU  ${cpugraph cpu1 30,280 555555 AAAAAA -l -t} ${cpugraph cpu2 30,280 555555 AAAAAA -l -t}
+${offset 120}     ${cpugraph cpu3 30,280 555555 AAAAAA -l -t} ${cpugraph cpu4 30,280 555555 AAAAAA -l -t}
+${offset 120}     ${cpugraph cpu5 30,280 555555 AAAAAA -l -t} ${cpugraph cpu6 30,280 555555 AAAAAA -l -t}
+${offset 120}     ${cpugraph cpu7 30,280 555555 AAAAAA -l -t} ${cpugraph cpu8 30,280 555555 AAAAAA -l -t}
+${offset 120}     ${cpugraph cpu9 30,280 555555 AAAAAA -l -t} ${cpugraph cpu10 30,280 555555 AAAAAA -l -t}
+${offset 120}     ${cpugraph cpu11 30,280 555555 AAAAAA -l -t} ${cpugraph cpu12 30,280 555555 AAAAAA -l -t}
+${voffset 2}${offset 120}MEM  ${memgraph 35,580 555555 AAAAAA -l}
+${offset 120}DISK ${diskiograph 35,580 666666 666666}
+${offset 120}UP   ${upspeedgraph wlp111s0 35,580 4B1B0C FF5C2B -l -t}
+${offset 120}DOWN ${downspeedgraph wlp111s0 35,580 324D23 77B753 -l -t}
 
 ]];
