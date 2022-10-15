@@ -83,7 +83,8 @@ ${font DejaVu Sans Mono:size=10}${color4}SYSTEM ${hr 3}
 ${offset 130}${font Mono:size=10,weight:normal}${color1}$sysname $kernel
 ${offset 180}${font DejaVu Sans Mono:size=10,weight:normal}${color1}$nodename
 ${offset 230}${font DejaVu Sans Mono:size=10,weight:normal}${color1}Uptime: $uptime
-${offset 50}${voffset 32}${offset 100}${font DejaVu Sans Mono:size=10,weight:bold}${color4}CPU ${hr 3}
+${offset 280}${font DejaVu Sans Mono:size=10,weight:normal}${color1}IP: ${addr wlp111s0}
+${offset 50}${voffset 0}${offset 100}${font DejaVu Sans Mono:size=10,weight:bold}${color4}CPU ${hr 3}
 ${offset 175}T${acpitemp}°C 
 # Showing TOP 5 CPU-consumers
 ${voffset -20}${offset 300}${font DejaVu Sans Mono:size=10,weight:normal}${color4}${top name 1}${alignr}${top cpu 1}%
